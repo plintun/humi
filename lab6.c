@@ -141,7 +141,7 @@ void dht11_read_val(){
     write(6, 0 , "hum");
     write(11, 0 , "time");
 
-        snprintf(buffer, sizeof(buffer), "%.1f*F",  farenheit);
+        snprintf(buffer, sizeof(buffer), "%.1fF",  farenheit);
         write(0, 1, buffer);
 
         snprintf(buffer, sizeof(buffer), "%d.%d %%", dht11_val[0], dht11_val[1]);
@@ -151,7 +151,7 @@ void dht11_read_val(){
         write(11, 1, str);
 
     } else {
-        write(0, 1, "Invalid Data!!");
+        write(0, 1, "InvalidData");
     }
 }
 
