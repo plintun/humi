@@ -133,6 +133,7 @@ void dht11_read_val(){
 
     int hour = rand() %24;
     int minute = rand()%60;
+    char str[7];
 
     if((j >= 40) && (dht11_val[4] == ((dht11_val[0] + dht11_val[1] + dht11_val[2] + dht11_val[3]) & 0xFF))) {
         farenheit = dht11_val[2] * 9.0 / 5.0 + 32;
