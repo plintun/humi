@@ -151,7 +151,7 @@ void dht11_read_val(){
         write(11, 1, str);
 
     } else {
-        write(0, 0, "Invalid Data!!");
+        write(0, 1, "Invalid Data!!");
     }
 }
 
