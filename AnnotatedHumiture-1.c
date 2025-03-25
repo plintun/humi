@@ -25,7 +25,7 @@ void dht11_read_val()
     digitalWrite(DHT11PIN, LOW);
     delay(18);  // Keep the pin LOW for at least 18ms to trigger the sensor
     digitalWrite(DHT11PIN, HIGH);
-    delayMicroseconds(40); // Wait for 40µs before switching to input mode
+    delayMicroseconds(40); // Wait for 40Âµs before switching to input mode
 
     pinMode(DHT11PIN, INPUT); // Set pin as input to read data
 
@@ -35,9 +35,9 @@ void dht11_read_val()
     // Read data from the sensor
     // i >= 4 ? Ignores the first 4 transitions (handshake signal).
     // i % 2 == 0 ? Ensures we only process the HIGH pulses.
-    // counter > 16 ? If the HIGH pulse lasted longer than ~50µs, it's a 1, otherwise it's a 0.
+    // counter > 16 ? If the HIGH pulse lasted longer than ~50Âµs, it's a 1, otherwise it's a 0.
     // dht11_val[j / 8] <<= 1 ? Shifts previous bits left to make space for the new bit.
-    // dht11_val[j / 8] |= 1 ? If it’s a 1, set the least significant bit.
+    // dht11_val[j / 8] |= 1 ? If itâ€™s a 1, set the least significant bit.
     for(i = 0; i < MAX_TIME; i++)
     {
         counter = 0;
@@ -57,7 +57,7 @@ void dht11_read_val()
         // Ignore the first three state transitions (start signal)
         if((i >= 4) && (i % 2 == 0)) {
             dht11_val[j / 8] <<= 1; // Shift left to make room for new bit
-            if(counter > 16)        // If signal is longer than 16µs, it's a '1'
+            if(counter > 20)        // If signal is longer than 16Âµs, it's a '1'
                 dht11_val[j / 8] |= 1;
             j++;
         }
