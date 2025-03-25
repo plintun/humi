@@ -57,7 +57,7 @@ void dht11_read_val()
         // Ignore the first three state transitions (start signal)
         if((i >= 4) && (i % 2 == 0)) {
             dht11_val[j / 8] <<= 1; // Shift left to make room for new bit
-            if(counter > 18)        // If signal is longer than 16µs, it's a '1'
+            if(counter > 21)        // If signal is longer than 16µs, it's a '1'
                 dht11_val[j / 8] |= 1;
             j++;
         }
