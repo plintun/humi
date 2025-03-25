@@ -127,9 +127,6 @@ void dht11_read_val(){
         }
     }
 
-    write(0, 0 , "temp");
-    write(6, 0 , "hum");
-    write(11, 0 , "time");
 
     int hour = rand() %24;
     int minute = rand()%60;
@@ -140,8 +137,11 @@ void dht11_read_val(){
 
   //      snprintf(buffer, sizeof(buffer), "%d.%d*C (%.1f *F)", dht11_val[2], dht11_val[3], farenheit);
     //    write(0, 1, buffer);
+    write(0, 0 , "temp");
+    write(6, 0 , "hum");
+    write(11, 0 , "time");
 
-        snprintf(buffer, sizeof(buffer), "%.1f *F",  farenheit);
+        snprintf(buffer, sizeof(buffer), "%.1f*F",  farenheit);
         write(0, 1, buffer);
 
         snprintf(buffer, sizeof(buffer), "%d.%d %%", dht11_val[0], dht11_val[1]);
