@@ -141,10 +141,10 @@ void dht11_read_val(){
     write(6, 0 , "hum");
     write(11, 0 , "time");
 
-        snprintf(str, sizeof(str), "%-6.1fF",  farenheit);
+        snprintf(buffer, sizeof(buffer), "%-6.1fF",  farenheit);
         write(0, 1, str);
 
-        snprintf(str, sizeof(str), "%d.%d %%", dht11_val[0], dht11_val[1]);
+        snprintf(buffer, sizeof(buffer), "%d.%d %%", dht11_val[0], dht11_val[1]);
         write(6, 1, str);
 
         sprintf(str, "%02d:%02d", hour, minute);
